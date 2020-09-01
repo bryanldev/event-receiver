@@ -10,14 +10,16 @@ namespace EventReceiver.Domain.ValueTypes
 
         public Timestamp(string timestamp)
         {
-            Time = Util.TimeStampToDate(timestamp);
             Validate(timestamp);
+
+            if (Valid)
+                Time = Util.TimeStampToDate(timestamp);
         }
 
         private void Validate(string timestamp)
         {
             if (!IsTimeStampValidFormat(timestamp))
-                AddNotification(nameof(Timestamp), "Error in input format");
+                AddNotification(nameof(Timestamp), "Error in input format.");
         }
 
         private bool IsTimeStampValidFormat(string timestamp)
