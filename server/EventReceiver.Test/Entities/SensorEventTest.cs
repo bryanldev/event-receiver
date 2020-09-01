@@ -9,7 +9,7 @@ namespace EventReceiver.Domain.Entities.Tests
     {
         private Timestamp timestamp;
 
-        private Tag tagBrasilSudesteSensor01;
+        private Tag tag;
 
         private Valor valor;
         private Valor emptyValor;
@@ -18,10 +18,10 @@ namespace EventReceiver.Domain.Entities.Tests
         /// Initializes SensorEvent test objects
         /// </summary>
         /// 
-        [SetUp]
+        [SetUp()]
         public void Setup()
         {
-            tagBrasilSudesteSensor01 = new Tag("Brasil.Sudeste.Sensor01");
+            tag = new Tag("Brasil.Sudeste.Sensor01");
 
             timestamp = new Timestamp("1598860800");
 
@@ -36,7 +36,7 @@ namespace EventReceiver.Domain.Entities.Tests
         [Test()]
         public void EventStatusProcessed()
         {
-            var S = new SensorEvent(timestamp, tagBrasilSudesteSensor01, valor);
+            var S = new SensorEvent(timestamp, tag, valor);
 
             Assert.AreEqual(true, S.Valid);
         }
@@ -48,7 +48,7 @@ namespace EventReceiver.Domain.Entities.Tests
         [Test()]
         public void EventStatusError()
         {
-            var S = new SensorEvent(timestamp, tagBrasilSudesteSensor01, emptyValor);
+            var S = new SensorEvent(timestamp, tag, emptyValor);
 
             Assert.AreEqual(true, S.Invalid);
         }
