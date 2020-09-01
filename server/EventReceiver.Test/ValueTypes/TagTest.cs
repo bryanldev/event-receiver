@@ -1,8 +1,4 @@
 ﻿using NUnit.Framework;
-using EventReceiver.Domain.ValueTypes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace EventReceiver.Domain.ValueTypes.Tests

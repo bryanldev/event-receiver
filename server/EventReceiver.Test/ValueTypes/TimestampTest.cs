@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
 using System.Linq;
 
 namespace EventReceiver.Domain.ValueTypes.Tests

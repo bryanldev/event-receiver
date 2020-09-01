@@ -1,5 +1,4 @@
-﻿using EventReceiver.Domain.Entities;
-using EventReceiver.Domain.ValueTypes;
+﻿using EventReceiver.Domain.ValueTypes;
 using NUnit.Framework;
 
 namespace EventReceiver.Domain.Entities.Tests
