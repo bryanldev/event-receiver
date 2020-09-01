@@ -2,10 +2,10 @@
 
 namespace EventReceiver.Domain.Entities
 {
-    public class Event : BaseEntity<int>
+    public class SensorEvent : BaseEntity<int>
     {
-        protected Event() { }
-        public Event(Timestamp Timestamp, Tag Tag, Valor Valor)
+        protected SensorEvent() { }
+        public SensorEvent(Timestamp Timestamp, Tag Tag, Valor Valor)
         {
 
             AddNotifications(Timestamp, Tag, Valor);
