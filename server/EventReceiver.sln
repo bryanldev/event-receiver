@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventReceiver.Infra.Shared"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1CB025D0-9080-40AA-B16D-13F73B500749}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventReceiver.Test", "EventReceiver.Test\EventReceiver.Test.csproj", "{705D22C0-41B8-4969-8945-76A25AA242F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventReceiver.Test", "EventReceiver.Test\EventReceiver.Test.csproj", "{705D22C0-41B8-4969-8945-76A25AA242F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
