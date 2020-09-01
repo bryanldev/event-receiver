@@ -12,7 +12,6 @@ namespace EventReceiver.Domain.Entities.Tests
         private Tag tag;
 
         private Valor valor;
-        private Valor emptyValor;
 
         /// <summary>
         /// Initializes SensorEvent test objects
@@ -26,7 +25,6 @@ namespace EventReceiver.Domain.Entities.Tests
             timestamp = new Timestamp("1598860800");
 
             valor = new Valor("f12CHF");
-            emptyValor = new Valor("");
         }
 
         /// <summary>
@@ -48,7 +46,7 @@ namespace EventReceiver.Domain.Entities.Tests
         [Test()]
         public void EventStatusError()
         {
-            var S = new SensorEvent(timestamp, tag, emptyValor);
+            var S = new SensorEvent(timestamp, tag, new Valor(""));
 
             Assert.AreEqual(true, S.Invalid);
         }
