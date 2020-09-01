@@ -1,9 +1,8 @@
-﻿using EventReceiver.Domain.Entities;
-using EventReceiver.Domain.ValueTypes;
+﻿using EventReceiver.Domain.ValueTypes;
 
-namespace EventReceiver.Domain.Models
+namespace EventReceiver.Domain.Entities
 {
-    class Event : BaseEntity<int>
+    public class Event : BaseEntity<int>
     {
         protected Event() { }
         public Event(Timestamp Timestamp, Tag Tag, Valor Valor)
