@@ -17,6 +17,10 @@ namespace EventReceiver.Infra.Shared
             {
 				throw new FormatException(ex.Message);
             }
+			catch(ArgumentNullException ex)
+            {
+				throw new ArgumentNullException(ex.Message);
+            }
 
 			return dtDateTime;
 		}
