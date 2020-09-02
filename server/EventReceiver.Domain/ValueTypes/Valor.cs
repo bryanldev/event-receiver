@@ -1,4 +1,5 @@
 ﻿using Flunt.Notifications;
+using Flunt.Validations;
 
 namespace EventReceiver.Domain.ValueTypes
 {
@@ -11,16 +12,21 @@ namespace EventReceiver.Domain.ValueTypes
         {
             Value = value;
             Error = error;
+            Validate(value);
         }
 
         public Valor(string value)
         {
             Value = value;
+            Validate(value);
+        }
 
+        public void Validate(string value)
+        {
             if (IsStringEmpty(value))
             {
                 Error = true;
-                AddNotification("Valor", "Empty field");
+                AddNotification(nameof(Valor), "Valor is empty.");
             }
         }
 
