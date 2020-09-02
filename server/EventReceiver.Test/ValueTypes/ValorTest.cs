@@ -9,8 +9,10 @@ namespace EventReceiver.Domain.ValueTypes.Tests
         [Test()]
         public void EmptyValorReturnError()
         {
+            // Arrange
             var valor = new Valor("");
 
+            // Assert
             Assert.True(valor.Invalid);
             Assert.AreEqual("Valor is empty.", valor.Notifications.Single().Message);
         }
@@ -19,6 +21,7 @@ namespace EventReceiver.Domain.ValueTypes.Tests
         [Test()]
         public void ToStringTest()
         {
+            // Arrange
             var valor = new Valor("teste");
             var emptyValor = new Valor("");
 
