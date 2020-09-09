@@ -1,53 +1,54 @@
-﻿using EventReceiver.Domain.ValueTypes;
+﻿using EventReceiver.Domain.Entities;
+using EventReceiver.Domain.ValueTypes;
 using NUnit.Framework;
 
-namespace EventReceiver.Domain.Entities.Tests
+namespace EventReceiver.Test.Entities
 {
-    [TestFixture()]
+    [TestFixture]
     public class SensorEventTest
     {
-        private Timestamp timestamp;
+        private Timestamp _timestamp;
 
-        private Tag tag;
+        private Tag _tag;
 
-        private Valor valor;
+        private Valor _valor;
 
         /// <summary>
         /// Initializes SensorEvent test objects
         /// </summary>
         /// 
-        [SetUp()]
+        [SetUp]
         public void Setup()
         {
-            tag = new Tag("Brasil.Sudeste.Sensor01");
+            _tag = new Tag("Brasil.Sudeste.Sensor01");
 
-            timestamp = new Timestamp("1598860800");
+            _timestamp = new Timestamp("1598860800");
 
-            valor = new Valor("f12CHF");
+            _valor = new Valor("f12CHF");
         }
 
         /// <summary>
         /// Assert that SensorEvent is valid for a non-empty 'valor'
         /// </summary>
         /// 
-        [Test()]
+        [Test]
         public void EventStatusProcessed()
         {
-            var S = new SensorEvent(timestamp, tag, valor);
+            var sensor = new SensorEvent(_timestamp, _tag, _valor);
 
-            Assert.AreEqual(true, S.Valid);
+            Assert.True(sensor.Valid);
         }
 
         /// <summary>
         /// Assert that SensorEvent is invalid for a empty 'valor'
         /// </summary>
         /// 
-        [Test()]
+        [Test]
         public void EventStatusError()
         {
-            var S = new SensorEvent(timestamp, tag, new Valor(""));
+            var sensor = new SensorEvent(_timestamp, _tag, new Valor(""));
 
-            Assert.AreEqual(true, S.Invalid);
+            Assert.AreEqual("Error", sensor.Status);
         }
     }
 }

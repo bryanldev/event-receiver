@@ -6,41 +6,28 @@ namespace EventReceiver.Domain.ValueTypes
     public class Valor : Notifiable
     {
         public string Value { get; private set; }
-        public bool Error { get; private set; }
-
-        public Valor(string value, bool error)
-        {
-            Value = value;
-            Error = error;
-            Validate(value);
-        }
-
+        
         public Valor(string value)
         {
             Value = value;
-            Validate(value);
+            Validate();
         }
 
-        public void Validate(string value)
+        private void Validate()
         {
-            if (IsStringEmpty(value))
-            {
-                Error = true;
-                AddNotification(nameof(Valor), "Valor is empty.");
-            }
+            AddNotifications(new Contract()
+                .IsNotNull(Value, "Valor.Value", "Valor should not be null.")
+            );
         }
 
-        private bool IsStringEmpty(string value)
+        public string IsProcessed()
         {
-            return value.Equals(string.Empty);
+            return Value.Equals("") ? "Error" : "Processed";
         }
 
         public override string ToString()
         {
-            if (!Error)
-                return $"{Value}";
-            else
-                return $"Error";
+            return $"{Value}";
         }
     }
 }

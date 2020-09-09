@@ -1,12 +1,13 @@
-﻿using NUnit.Framework;
-using System.Linq;
+﻿using System.Linq;
+using EventReceiver.Domain.ValueTypes;
+using NUnit.Framework;
 
-namespace EventReceiver.Domain.ValueTypes.Tests
+namespace EventReceiver.Test.ValueTypes
 {
-    [TestFixture()]
+    [TestFixture]
     public class TimestampTest
     {
-        [Test()]
+        [Test]
         public void TimestampIsValid()
         {
             // Arrange
@@ -16,7 +17,7 @@ namespace EventReceiver.Domain.ValueTypes.Tests
             Assert.True(timestamp.Valid);
         }
 
-        [Test()]
+        [Test]
         public void EmptyArgumentTimestampTest()
         {
             // Arrange
@@ -24,10 +25,10 @@ namespace EventReceiver.Domain.ValueTypes.Tests
 
             // Assert
             Assert.True(timestamp.Invalid);
-            Assert.AreEqual("Error in input format.", timestamp.Notifications.Single().Message);
+            Assert.AreEqual("Timestamp should not be empty.", timestamp.Notifications.Single().Message);
         }
 
-        [Test()]
+        [Test]
         public void NullArgumentTimestampTest()
         {
             // Arrange
@@ -35,10 +36,10 @@ namespace EventReceiver.Domain.ValueTypes.Tests
 
             // Assert
             Assert.True(timestamp.Invalid);
-            Assert.AreEqual("Error in input format.", timestamp.Notifications.Single().Message);
+            Assert.AreEqual("Timestamp should not be empty.", timestamp.Notifications.Single().Message);
         }
 
-        [Test()]
+        [Test]
         public void NonNumericArgumentsTest()
         {
             // Arrange
@@ -49,14 +50,14 @@ namespace EventReceiver.Domain.ValueTypes.Tests
             Assert.AreEqual("Error in input format.", timestamp.Notifications.Single().Message);
         }
 
-        [Test()]
+        [Test]
         public void ToStringTest()
         {
             // Arrange
             var timestamp = new Timestamp("638956800");
 
             // Assert
-            Assert.That(timestamp.ToString, Is.EqualTo("01/04/1990 08:00:00"));
+            Assert.That(timestamp.ToString, Is.EqualTo("638956800"));
         }
     }
 }

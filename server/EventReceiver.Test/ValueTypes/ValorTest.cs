@@ -1,33 +1,47 @@
-﻿using NUnit.Framework;
-using System.Linq;
+﻿using System.Linq;
+using EventReceiver.Domain.ValueTypes;
+using NUnit.Framework;
 
-namespace EventReceiver.Domain.ValueTypes.Tests
+namespace EventReceiver.Test.ValueTypes
 {
-    [TestFixture()]
+    [TestFixture]
     public class ValorTest
     {
-        [Test()]
-        public void EmptyValorReturnError()
+        [Test]
+        public void EmptyValorReturnErrorStatus()
         {
             // Arrange
             var valor = new Valor("");
 
             // Assert
+            Assert.True(valor.Valid);
+            Assert.AreEqual("Error", valor.IsProcessed());
+        }
+
+        [Test]
+        public void NullValorReturnError()
+        {
+            // Arrange
+            var valor = new Valor(null);
+
+            // Assert
             Assert.True(valor.Invalid);
-            Assert.AreEqual("Valor is empty.", valor.Notifications.Single().Message);
+            Assert.AreEqual("Valor should not be null.", valor.Notifications.Single().Message);
         }
 
 
-        [Test()]
+        [Test]
         public void ToStringTest()
         {
             // Arrange
-            var valor = new Valor("teste");
+            var valor1 = new Valor("wk340");
+            var valor2 = new Valor("14340");
             var emptyValor = new Valor("");
 
             // Assert
-            Assert.That(valor.ToString, Is.EqualTo("teste"));
-            Assert.That(emptyValor.ToString, Is.EqualTo("Error"));
+            Assert.That(valor1.IsProcessed(), Is.EqualTo("Processed"));
+            Assert.That(valor2.IsProcessed(), Is.EqualTo("Processed"));
+            Assert.That(emptyValor.IsProcessed(), Is.EqualTo("Error"));
         }
     }
 }

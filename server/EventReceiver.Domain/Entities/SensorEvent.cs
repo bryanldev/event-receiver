@@ -4,28 +4,38 @@ namespace EventReceiver.Domain.Entities
 {
     public class SensorEvent : BaseEntity<int>
     {
-        protected SensorEvent() { }
-        public SensorEvent(Timestamp Timestamp, Tag Tag, Valor Valor)
+        protected SensorEvent()
         {
+        }
 
-            AddNotifications(Timestamp, Tag, Valor);
+        public SensorEvent(Timestamp timestamp, Tag tag, Valor valor)
+
+        {
+            AddNotifications(timestamp, tag, valor);
+
+            Valor = valor;
+            Status = valor.IsProcessed();
 
             if (Valid)
             {
-                this.Timestamp = Timestamp;
-                this.Tag = Tag;
-                this.Valor = Valor;
+                Timestamp = timestamp;
+                Tag = tag;
             }
-
         }
 
         public Tag Tag { get; }
         public Timestamp Timestamp { get; }
         public Valor Valor { get; }
 
+        public string Status { get; }
+
         public override string ToString()
         {
-            return $"{Tag}";
+            return $"{{" +
+                   $"timestamp:{Timestamp}," +
+                   $"tag:{Tag}," +
+                   $"valor:{Valor}" +
+                   $"}}";
         }
     }
 }

@@ -2,14 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>EventReceiver.Infra.Shared</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Flunt" Version="1.0.5" />
+    <ProjectReference Include="..\EventReceiver.Domain\EventReceiver.Domain.csproj" />
   </ItemGroup>
 
 </Project>

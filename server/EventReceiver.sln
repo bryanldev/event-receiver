@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventReceiver.Infra.CrossCu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventReceiver.Infra.Data", "EventReceiver.Infra.Data\EventReceiver.Infra.Data.csproj", "{037ACBE4-7E6B-4311-8EB5-AD640E9FCDAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventReceiver.Infra.Shared", "EventReceiver.Infra.Shared\EventReceiver.Infra.Shared.csproj", "{0AF5B10F-A639-4AAB-8A24-60C757A8B043}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventReceiver.Infra.Shared", "Infra.Shared\EventReceiver.Infra.Shared.csproj", "{0AF5B10F-A639-4AAB-8A24-60C757A8B043}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1CB025D0-9080-40AA-B16D-13F73B500749}"
 EndProject

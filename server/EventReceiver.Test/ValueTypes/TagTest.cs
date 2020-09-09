@@ -1,16 +1,17 @@
-﻿using NUnit.Framework;
-using System.Linq;
+﻿using System.Linq;
+using EventReceiver.Domain.Entities;
+using NUnit.Framework;
 
-namespace EventReceiver.Domain.ValueTypes.Tests
+namespace EventReceiver.Test.ValueTypes
 {
-    [TestFixture()]
+    [TestFixture]
     public class TagTest
     {
         /// <summary>
         /// Assert that Tag is valid for this string format
         /// </summary>
         /// 
-        [Test()]
+        [Test]
         public void TagIsValid()
         {
             // Arrange
@@ -20,7 +21,7 @@ namespace EventReceiver.Domain.ValueTypes.Tests
             Assert.True(tag.Valid);
         }
 
-        [Test()]
+        [Test]
         public void TagIsInvalid1()
         {
             // Arrange
@@ -32,7 +33,7 @@ namespace EventReceiver.Domain.ValueTypes.Tests
         }
 
 
-        [Test()]
+        [Test]
         public void TagIsInvalid2()
         {
             // Arrange
@@ -43,7 +44,7 @@ namespace EventReceiver.Domain.ValueTypes.Tests
             Assert.AreEqual("Unexpected tag format.", tag.Notifications.Single().Message);
         }
 
-        [Test()]
+        [Test]
         public void TagIsInvalid3()
         {
             // Arrange
@@ -54,7 +55,7 @@ namespace EventReceiver.Domain.ValueTypes.Tests
             Assert.AreEqual("Unexpected tag format.", tag.Notifications.Single().Message);
         }
 
-        [Test()]
+        [Test]
         public void EmptyArgumentTagTest()
         {
             // Arrange
@@ -65,7 +66,7 @@ namespace EventReceiver.Domain.ValueTypes.Tests
             Assert.AreEqual("Tag should not be empty.", tag.Notifications.Single().Message);
         }
 
-        [Test()]
+        [Test]
         public void NullArgumentTagTest()
         {
             // Arrange
@@ -76,7 +77,7 @@ namespace EventReceiver.Domain.ValueTypes.Tests
             Assert.AreEqual("Tag should not be empty.", tag.Notifications.Single().Message);
         }
 
-        [Test()]
+        [Test]
         public void ToStringTest()
         {
             // Arrange
