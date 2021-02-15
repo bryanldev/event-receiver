@@ -7,6 +7,10 @@ namespace Domain.Entities.SensorEventAggregate
         public SensorData Data { get; }
         public string Status { get; }
 
+        protected SensorEvent()
+        {
+        }
+
         public SensorEvent(Timestamp timestamp, Tag tag, SensorData sensorData)
         {
             AddNotifications(timestamp, tag, sensorData);

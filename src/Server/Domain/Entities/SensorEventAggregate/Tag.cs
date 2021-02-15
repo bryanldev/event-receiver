@@ -16,6 +16,10 @@ namespace Domain.Entities.SensorEventAggregate
 
         #endregion
 
+        protected Tag()
+        {
+        }
+
         public Tag(string tag)
         {
             if (string.IsNullOrEmpty(tag))
