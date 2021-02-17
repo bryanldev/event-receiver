@@ -8,7 +8,7 @@ namespace Infrastructure.Data
         public ApplicationDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            optionsBuilder.UseSqlite("Data Source=Infrastructure/Data/DB/EventReceiverDb");
+            optionsBuilder.UseSqlite("Data Source=../Infrastructure/Data/DB/EventReceiverDb");
 
             return new ApplicationDbContext(optionsBuilder.Options);
         }

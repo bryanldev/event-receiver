@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Infrastructure.Extensions;
+using API.Services;
+using API.Profiles;
 
 namespace API
 {
@@ -15,6 +16,10 @@ namespace API
         {
             services.AddControllersWithViews();
             services.AddDbContext(Configuration);
+            services.AddAutoMapper(typeof(BaseProfile));
+            services.AddRepository();
+
+            services.AddScoped<IEventReceiverDomainService, EventReceiverDomainService>();
         }
 
 
@@ -26,10 +31,11 @@ namespace API
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action}/{id?}",
+                    defaults: new { Controller = "Event", action = "Index" }
+                );
             });
         }
     }
