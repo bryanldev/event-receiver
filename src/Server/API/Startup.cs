@@ -19,7 +19,7 @@ namespace API
             services.AddAutoMapper(typeof(BaseProfile));
             services.AddRepository();
 
-            services.AddScoped<IEventReceiverDomainService, EventReceiverDomainService>();
+            services.AddScoped<IApplicationService, ApplicationService>();
         }
 
 
