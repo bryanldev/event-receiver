@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using API.Models;
-using AutoMapper;
 using Domain.Entities.SensorEventAggregate;
 
 namespace API.Profiles

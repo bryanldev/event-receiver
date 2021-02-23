@@ -83,5 +83,70 @@ namespace API.Controllers
             }
         }
 
+        /// <summary>
+        /// Get Events per region 
+        /// </summary>
+        /// <remarks>
+        /// Sample result:
+        ///
+        ///     {
+        ///        "country": "brasil",
+        ///        "region": "sul",
+        ///        "total" : "7"
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="region"></param>
+        /// <returns>Returns country, region and the total number of events per region</returns>
+        /// <response code="200">Returns the newly created item</response>
+        [HttpGet("region/{region}")]
+        public async Task<IActionResult> GetSensorEventCountByRegion(string region)
+        {
+            try
+            {
+                var response = await _service.GetTagEventByRegion(region);
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Events per sensor name
+        /// </summary>
+        /// <remarks>
+        /// Sample result:
+        ///
+        ///      {
+        ///          "country": "brasil",
+        ///          "region": "sul",
+        ///          "sensorName": "sensor01",
+        ///          "total": 5
+        ///      },
+        ///      {
+        ///         "country": "brasil",
+        ///         "region": "sul",
+        ///         "sensorName": "sensor02",
+        ///         "total": 2
+        ///      }
+        /// </remarks>
+        /// <param name="region"></param>
+        /// <returns>Returns the number of events per sensor name</returns>
+        /// <response code="200">Returns the newly created item</response>
+        [HttpGet("sensor/{region}")]
+        public ActionResult GetSensorEventCountBySensorName(string region)
+        {
+            try
+            {
+                var response = _service.GetTagEventBySensorName(region);
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

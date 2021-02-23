@@ -8,5 +8,7 @@ namespace API.Services
     {
         Task<List<SensorEventResponseModel>> GetAllEvents();
         Task<SensorEventRequestModel> SaveEvent(SensorEventRequestModel sensorEventModel);
+        Task<TagResponseByRegionModel> GetTagEventByRegion(string region);
+        Task<IEnumerable<TagResponseBySensorNameModel>> GetTagEventBySensorName(string region);
     }
 }
