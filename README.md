@@ -4,12 +4,14 @@
 > API para processar o recebimento de eventos de sensores espalhados pelo Brasil.
 
 ## 🔧 Tecnologias Utilizadas
- - .NET Core 3.1.
- - EntityFramework Core 3.1.7 (Code First)
- - Flunt Validation 1.0.5
- - Swagger UI 5.5.1
+ - .NET5
+ - EntityFramework Core (Code First)
+ - Flunt Validation
+ - Swagger
  - Injeção de Dependência (nativa)
- - NUnit 3.12
+ - NUnit
+ - Moq
+ - AutoMapper
  - SQLite.
 
 
@@ -20,9 +22,9 @@ Este projeto foi construído em cima do servidor web Kestrel. Para que o projeto
 **1. Clone este repositório**
 
 ```
-$ git clone https://gitlab.com/bryanlds/junior-analyst.git
+$ git clone https://gitlab.com/bryanlds/event-receiver.git
 
-$ cd junior-analyst/server
+$ cd event-receiver/src/Server
 ```
 
 **2. Para baixar os pacotes adicionais necessários:**
@@ -31,10 +33,12 @@ dotnet restore
 ```
 **3. Para rodar a aplicação:**
 ```shell
-dotnet run --project EventReceiver.Application
+dotnet run --project API
 ```
 
 A porta padrão selecionada é a 5001 ou 5000 (ex.: https://localhost:5001/)
+
+Caso use uma IDE como o Visual Studio, simplesmente abra a solução EventReceiver.sln e rode a aplicação.
 
 ## Documentação
 A aplicação fornece suporte ao Swagger, que é aberto no início da aplicação. Nele é possível ter uma descrição sobre os endpoints fornecidos pela solução, a saber:
