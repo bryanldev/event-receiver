@@ -18,6 +18,7 @@ namespace API
             services.AddDbContext(Configuration);
             services.AddAutoMapper(typeof(BaseProfile));
             services.AddRepository();
+            services.AddSwagger();
 
             services.AddScoped<IApplicationService, ApplicationService>();
         }
@@ -26,8 +27,9 @@ namespace API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseDeveloperExceptionPage();
-            app.UseRouting();
             app.UseStaticFiles();
+            app.UseSwaggerMidleware();
+            app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
